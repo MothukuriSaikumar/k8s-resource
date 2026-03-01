@@ -10,10 +10,10 @@ spec:
   containers: 
   - name: nginx
     image: nginx:latest
-    ports:
-    - containerPort: 80
+    
+   
   - name: almalinux
     image: almalinux:latest
+    commands: ["sleep", "1000"]
     
-    ports:
-    - containerPort: 6379
+ 
