@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pod-configmap
+  namespace: roboshop
+data:
+  course: "Kubernetes"
+  topic: "ConfigMap"
+  description: "This is a ConfigMap example for Roboshop project"
