@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: Loadbalancer-service
+  namespace: roboshop
+  
+# type: LoadBalancer will create a load balancer in supported cloud providers and assign a fixed, external IP to the service.
+spec:
+   type: LoadBalancer
+   selector:
+    project: roboshop
+    purpose: ALB
+    env: dev
+   ports:
+   - protocol: TCP
+     port: 80 # service port
+     targetPort: 80 # container port
+     NodePort: 30080 # node port

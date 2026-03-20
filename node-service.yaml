@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-service
+  namespace: roboshop
+  
+# This service will be used to access the node-frontend pod
+spec:
+   type: NodePort
+   selector:
+    project: roboshop
+    purpose: node-frontend
+    env: dev
+   ports:
+   - protocol: TCP
+     port: 80 # service port
+     targetPort: 80 # container port
+

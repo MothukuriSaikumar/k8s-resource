@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend
+  namespace: roboshop
+  labels:
+    name: replicaset-frontend
+    project: roboshop
+    
+
+spec:
+  # labels specified here must match with the labels specified in the selector field
+  replicas: 3
+  selector:
+    matchLabels:
+      name: replicaset-frontend
+      project: roboshop
+      
+  template:
+    metadata:
+      labels:
+        name: replicaset-frontend
+        project: roboshop
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:perl
+
