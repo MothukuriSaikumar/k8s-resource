@@ -16,10 +16,10 @@ kind: Pod
 metadata:
   name: nginx-ebs-dynamic
   namespace: roboshop
-spec:
-  containers: 
-  - name: nginx
-    image: nginx:latest
+  spec:
+    containers: 
+    - name: nginx
+      image: nginx:latest
     ports:
     - containerPort: 80
     volumeMounts:
