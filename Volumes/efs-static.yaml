@@ -32,8 +32,8 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-name: nginx-efs-static
-namespace: roboshop
+  name: nginx-efs-static
+  namespace: roboshop
 spec:
   containers:
   - name: nginx
