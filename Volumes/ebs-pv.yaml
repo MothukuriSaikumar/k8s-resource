@@ -28,3 +28,19 @@ spec:
     requests:
       storage: 2Gi
   volumeName: pv-ebs-static # this is the name of the pv that we want
+
+---
+apiVersion: v1
+kind: Pod
+Metadata:
+  name: pod-ebs-static
+  namespace: roboshop 
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - name: ebs-volume
+      mountPath: /usr/share/nginx/html # this is the path where the pv will be mounted in the container
