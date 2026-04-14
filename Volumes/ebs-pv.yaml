@@ -45,5 +45,9 @@ spec:
     - name: ebs-volume
       mountPath: /usr/share/nginx/html # this is the path where the pv will be mounted in the container
     
-    nodeSelector:
-      topology.kubernetes.io/zone: us-east-1a
+  nodeSelector:
+    topology.kubernetes.io/zone: us-east-1a
+  volumes:
+  - name: ebs-volume
+    persistentVolumeClaim:
+      claimName: pvc-ebs-static # this is the name of the pvc that we want to use
