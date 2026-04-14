@@ -3,6 +3,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: efs-sc
+  namespace: roboshop
 provisioner: efs.csi.aws.com
 Parameters:
   provisioningMode: efs-ap
