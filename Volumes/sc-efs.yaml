@@ -5,7 +5,7 @@ metadata:
   name: efs-sc
   namespace: roboshop
 provisioner: efs.csi.aws.com
-Parameters:
+parameters:
   provisioningMode: efs-ap
   fileSystemId: fs-0393d16ee045d2a26
   directoryPerms: "700"
