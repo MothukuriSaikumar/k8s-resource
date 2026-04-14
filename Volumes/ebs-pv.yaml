@@ -7,11 +7,24 @@ spec:
   capacity:
     storage: 5Gi  
   accessModes:
-    - ReadWriteOnce 
-  persistentVolumeReclaimPolicy: Retain # retain means 
+    - ReadWriteOnce # only one node can read/write to this pv at a time
+  persistentVolumeReclaimPolicy: Retain # retain means pv will not be deleted when pvc is deleted
   csi:
     driver: ebs.csi.aws.com
     volumeHandle: vol-0d0026161fc879288
     fsType: ext4
 
-  
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pvc-ebs-static
+  namespace: roboshop
+
+spec:
+  accessModes:
+    - ReadWriteOnce 
+  resources:
+    requests:
+      storage: 2Gi
+  volumeName: pv-ebs-static # this is the name of the pv that we want
