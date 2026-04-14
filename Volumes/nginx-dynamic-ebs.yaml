@@ -16,12 +16,17 @@ kind: Pod
 metadata:
   name: nginx-ebs-dynamic
   namespace: roboshop
-  spec:
-    containers: 
-    - name: nginx
-      image: nginx:latest
+spec:
+  containers: 
+  - name: nginx
+    image: nginx:latest
     ports:
     - containerPort: 80
     volumeMounts:
-    - name: ebs-volume
+      name: ebs-volume
       mountPath: /usr/share/nginx/html # this is the path where the pv will be mounted in the container
+
+    volumes:
+    - name: ebs-volume
+      persistentVolumeClaim:
+        claimName: pvc-ebs-dynamic # this is the name of the pvc that we want to use
