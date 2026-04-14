@@ -32,7 +32,7 @@ spec:
 ---
 apiVersion: v1
 kind: Pod
-Metadata:
+metadata:
   name: pod-ebs-static
   namespace: roboshop 
 spec:
@@ -44,3 +44,6 @@ spec:
     volumeMounts:
     - name: ebs-volume
       mountPath: /usr/share/nginx/html # this is the path where the pv will be mounted in the container
+    
+    nodeSelector:
+      topology.kubernetes.io/zone: us-east-1a
