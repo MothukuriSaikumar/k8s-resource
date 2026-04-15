@@ -34,22 +34,7 @@ spec:
     persistentVolumeClaim:
       claimName: efs-pvc # this is the name of the pvc that we want to use
   
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: nginx-efs-loadbalancer
-  namespace: roboshop
-  
-spec:
-  
-  type: LoadBalancer
-    
-  selector:
-    purpose: efs-dynamic
-  ports:  
-    protocol: TCP
-    port: 80
-    targetPort: 80
-    nodePort: 30080
+
+
+
   
