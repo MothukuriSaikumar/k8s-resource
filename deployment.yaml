@@ -24,9 +24,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: nginx-headless
   namespace: roboshop
 spec:
+  clusterIP: None
   selector:
     purpose: nginx
     project: roboshop
