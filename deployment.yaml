@@ -4,7 +4,8 @@ metadata:
   name: example-deployment
   namespace: roboshop
   labels:
-    app: nginx
+    purpose: nginx-headless
+    project: roboshop
 spec:
   replicas: 3
   selector:
