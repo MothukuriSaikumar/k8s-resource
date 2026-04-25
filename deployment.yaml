@@ -9,11 +9,13 @@ spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nginx
+      purpose: nginx-headless
+      project: roboshop
   template:             # this is the pod template
     metadata:
       labels:
-        app: nginx
+        purpose: nginx-headless
+        project: roboshop
     spec:
       containers:
       - name: nginx
@@ -29,7 +31,7 @@ metadata:
 spec:
   clusterIP: None
   selector:
-    purpose: nginx
+    purpose: nginx-headless
     project: roboshop
   ports:
   - protocol: TCP
